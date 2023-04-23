@@ -20,3 +20,6 @@ services:
       - ./back-end/.env.test
     volumes:
       - postgres-volume:/var/lib/postgresql/data
+
+volumes:
+  postgres-volume:
