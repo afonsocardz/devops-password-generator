@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  node:
+    container_name: node_server
+    build: ./back-end
+    env_file:
+      - ./back-end/.env.test
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres_db
+    image: postgres
+    restart: always
+    ports:
+      - 2345:5432
+    env_file:
+      - ./back-end/.env.test
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
