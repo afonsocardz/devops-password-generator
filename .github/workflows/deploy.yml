@@ -33,9 +33,9 @@ jobs:
       - name: Get react-volume info
         id: react-volume
         run: |
-          echo "REACT_VOLUME=$(docker volume inspect devops-password-generator cmd >/dev/null 2>&1)$?" >> $GITHUB_OUTPUT
+          echo "REACT_VOLUME=$(docker volume inspect devops-password-generator cmd >/dev/null 2>&1)$?" >> "$GITHUB_OUTPUT"
       - name: Delete react docker volume
-        if: ${{ !contains(steps.react-volume.outputs.REACT_VOLUME, '0') }}
+        if: ${{ steps.react-volume.outputs.REACT_VOLUME == '0' }}
         run: docker volume rm devops-password-generator_react-volume
       - name: Build docker images
         run: docker compose build
