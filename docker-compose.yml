@@ -4,7 +4,7 @@ services:
     container_name: node_server
     build: ./back-end
     env_file:
-      - ./back-end/.env.test
+      - ./back-end/.env
     ports:
       - 5000:5000
     depends_on:
@@ -17,7 +17,7 @@ services:
     ports:
       - 2345:5432
     env_file:
-      - ./back-end/.env.test
+      - ./back-end/.env
     volumes:
       - postgres-volume:/var/lib/postgresql/data
 
