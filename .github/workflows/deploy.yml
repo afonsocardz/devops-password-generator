@@ -33,7 +33,7 @@ jobs:
       - name: Get react-volume info
         id: react-volume
         run: |
-          echo "REACT_VOLUME=$(docker volume inspect devops-password-generator_react-volume" >> $GITHUB_OUTPUT
+          echo "REACT_VOLUME=$(docker volume inspect devops-password-generator_react-volume)" >> $GITHUB_OUTPUT
       - name: Delete react docker volume
         if: ${{ !contains(steps.react-volume.outputs.REACT_VOLUME, '[]') }}
         run: docker volume rm devops-password-generator_react-volume
