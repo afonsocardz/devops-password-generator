@@ -41,13 +41,12 @@ services:
       - postgres
       - node
       - react
-      - certbot
 
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
+  openssl:
+    image: ./openssl
+    container_name: openssl
     volumes:
-    - ssl-certs:/etc/letsencrypt
+    - ssl-certs:/certs
     - react-volume:/var/www/html
     command: certonly --webroot --agree-tos --email you@example.com -w /var/www/html -d example.com -d www.example.com
 
