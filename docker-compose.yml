@@ -43,8 +43,7 @@ services:
       - react
 
   openssl:
-    image: ./openssl
-    container_name: openssl
+    build: ./openssl
     volumes:
     - ssl-certs:/certs
 
