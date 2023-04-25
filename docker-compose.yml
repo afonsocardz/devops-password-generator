@@ -47,8 +47,6 @@ services:
     container_name: openssl
     volumes:
     - ssl-certs:/certs
-    - react-volume:/var/www/html
-    command: certonly --webroot --agree-tos --email you@example.com -w /var/www/html -d example.com -d www.example.com
 
 volumes:
   postgres-volume:
